@@ -91,28 +91,14 @@ class Package
         return $this;
     }
 
-    public function hasRoute(string $routeFileName): self
-    {
-        $this->routeFileNames[] = $routeFileName;
-
-        return $this;
-    }
-
-    public function hasRoutes(array $routeFileNames): self
-    {
-        $this->routeFileNames = array_merge($this->routeFileNames, $routeFileNames);
-
-        return $this;
-    }
-
-    public function hasWebRoutes(string $nameSpace = null): self
+    public function hasWebRoutes(): self
     {
         $this->hasWebRoutes = true;
 
         return $this;
     }
 
-    public function hasApiRoutes(string $nameSpace = null): self
+    public function hasApiRoutes(): self
     {
         $this->hasApiRoutes = true;
 

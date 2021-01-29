@@ -223,7 +223,7 @@ $package
 
 The `PackageServiceProvider` assumes that web and api route files are placed in this directory: `<package root>/routes`.
 
-To register your web route, you should call the `hasWebRoutes` method. This method will load the routes from `web.php`
+To register your web route, you should call the `hasWebRoutes` method. This method will load the routes from `web.php` and it will use the `web` middleware.
 
 ```php
 $package
@@ -231,7 +231,7 @@ $package
     ->hasWebRoutes();
 ```
 
-To register your api route, you should call the `hasApiRoutes` method. This method will load the routes from `api.php`
+To register your api route, you should call the `hasApiRoutes` method. This method will load the routes from `api.php` and it will use the `api` middleware.
 
 ```php
 $package
