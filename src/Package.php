@@ -20,6 +20,10 @@ class Package
 
     public array $routeFileNames = [];
 
+    public bool $hasWebRoutes = false;
+
+    public bool $hasApiRoutes = false;
+
     public array $commands = [];
 
     public string $basePath;
@@ -97,6 +101,20 @@ class Package
     public function hasRoutes(array $routeFileNames): self
     {
         $this->routeFileNames = array_merge($this->routeFileNames, $routeFileNames);
+
+        return $this;
+    }
+
+    public function hasWebRoutes(string $nameSpace = null): self
+    {
+        $this->hasWebRoutes = true;
+
+        return $this;
+    }
+
+    public function hasApiRoutes(string $nameSpace = null): self
+    {
+        $this->hasApiRoutes = true;
 
         return $this;
     }

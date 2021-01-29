@@ -2,6 +2,7 @@
 
 namespace Spatie\LaravelPackageTools;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use ReflectionClass;
@@ -89,6 +90,17 @@ abstract class PackageServiceProvider extends ServiceProvider
 
         foreach ($this->package->routeFileNames as $routeFileName) {
             $this->loadRoutesFrom("{$this->package->basePath('/../routes/')}{$routeFileName}.php");
+        }
+
+        if ($this->package->hasWebRoutes) {
+            Route::middleware('web')
+                ->group($this->package->basePath('/../routes/web.php'));
+        }
+
+        if ($this->package->hasApiRoutes) {
+            Route::prefix('api')
+                ->middleware('api')
+                ->group($this->package->basePath('/../routes/api.php'));
         }
 
         $this->packageBooted();
