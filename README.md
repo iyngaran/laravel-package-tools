@@ -221,7 +221,7 @@ $package
 
 ### Working with routes
 
-The `PackageServiceProvider` assumes that any route files are placed in this directory: `<package root>/routes`. Inside that directory you can put web and api route files.
+The `PackageServiceProvider` assumes that web and api route files are placed in this directory: `<package root>/routes`.
 
 To register your web route, you should call the `hasWebRoutes` method. This method will load the routes from `web.php`
 
