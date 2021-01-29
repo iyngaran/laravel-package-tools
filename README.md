@@ -221,24 +221,22 @@ $package
 
 ### Working with routes
 
-The `PackageServiceProvider` assumes that any route files are placed in this directory: `<package root>/routes`. Inside that directory you can put any route files.
+The `PackageServiceProvider` assumes that any route files are placed in this directory: `<package root>/routes`. Inside that directory you can put web and api route files.
 
-To register your route, you should pass its name without the extension to the `hasRoute` method. 
-
-If your route file is called `web.php` you can register them like this:
+To register your web route, you should call the `hasWebRoutes` method. This method will load the routes from `web.php`
 
 ```php
 $package
     ->name('your-package-name')
-    ->hasRoute('web');
+    ->hasWebRoutes();
 ```
 
-Should your package contain multiple route files, you can just call `hasRoute` multiple times or use `hasRoutes`.
+To register your api route, you should call the `hasApiRoutes` method. This method will load the routes from `api.php`
 
 ```php
 $package
     ->name('your-package-name')
-    ->hasRoutes(['web', 'admin']);
+    ->hasApiRoutes();
 ```
 
 ### Using lifecycle hooks
