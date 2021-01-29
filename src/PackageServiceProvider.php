@@ -88,10 +88,6 @@ abstract class PackageServiceProvider extends ServiceProvider
             $this->loadViewsFrom($this->package->basePath('/../resources/views'), $this->package->shortName());
         }
 
-        foreach ($this->package->routeFileNames as $routeFileName) {
-            $this->loadRoutesFrom("{$this->package->basePath('/../routes/')}{$routeFileName}.php");
-        }
-
         if ($this->package->hasWebRoutes) {
             Route::middleware('web')
                 ->group($this->package->basePath('/../routes/web.php'));
