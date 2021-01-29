@@ -13,7 +13,7 @@ class PackageRouteWithControllerTest extends PackageServiceProviderTestCase
 
         $package
             ->name('laravel-package-tools')
-            ->hasWebRoutes('Spatie\LaravelPackageTools\Tests\TestPackage\Src\Http\Controllers')
+            ->hasWebRoutes()
             ->hasApiRoutes();
     }
 
